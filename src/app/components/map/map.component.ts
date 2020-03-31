@@ -46,8 +46,15 @@ export class MapComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      if (! result){
+        return;
+      }
 
+      marker.title = result.title;
+      marker.description = result.description;
+
+      this.updateStorage();
+      this.snackBar.open('Marker updated', 'Close', { duration: 2500 });
     });
   }
 

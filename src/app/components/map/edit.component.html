@@ -1,1 +1,17 @@
-<p>edit works!</p>
+<form [formGroup]="form">
+  <h1 mat-dialog-title>Edit marker</h1>
+  <div mat-dialog-content>
+    <mat-form-field>
+      <mat-label>Title</mat-label>
+      <input matInput placeholder="Golden Gate" formControlName="title">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Description</mat-label>
+      <textarea matInput placeholder="It makes me feel..." formControlName="description"></textarea>
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button type="button" (click)="onNoClick()" mat-button>Cancel</button>
+    <button type="button" (click)="save()"  mat-button cdkFocusInitial>Save</button>
+  </div>
+</form>
