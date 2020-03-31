@@ -20,15 +20,20 @@ export class MapComponent implements OnInit {
   ngOnInit() {
   }
 
-  addMarker(event) {
+  add(event) {
     const coords: { lat: number, lng: number } = event.coords;
 
     const newMarker = new Marker(coords.lat, coords.lng);
     this.markers.push(newMarker);
-    this.saveInStorage();
+    this.updateStorage();
   }
 
-  saveInStorage() {
+  delete(markerPosition: number) {
+    this.markers.splice(markerPosition, 1);
+    this.updateStorage();
+  }
+
+  updateStorage() {
     localStorage.setItem('markers', JSON.stringify(this.markers));
   }
 
