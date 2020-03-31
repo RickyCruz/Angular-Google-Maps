@@ -8,7 +8,7 @@
           <strong>{{ marker.title }}</strong>
           <p>{{ marker.description }}</p>
           <div>
-            <button mat-raised-button color="primary">Edit</button>
+            <button mat-raised-button color="primary" (click)="edit(marker)">Edit</button>
             <button mat-raised-button color="warn" (click)="delete(position)">Delete</button>
           </div>
         </agm-info-window>

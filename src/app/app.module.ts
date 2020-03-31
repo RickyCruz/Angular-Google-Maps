@@ -8,11 +8,16 @@ import { AgmCoreModule } from '@agm/core';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material.module';
 import { MapComponent } from './components/map/map.component';
+import { EditComponent } from './components/map/edit.component';
 
 @NgModule({
+  entryComponents: [
+    EditComponent
+  ],
   declarations: [
     AppComponent,
-    MapComponent
+    MapComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,
