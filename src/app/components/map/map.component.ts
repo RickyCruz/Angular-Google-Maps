@@ -12,17 +12,9 @@ export class MapComponent implements OnInit {
   markers: Marker[] = [];
 
   constructor() {
-    // if (navigator.geolocation) {
-    //   navigator.geolocation.getCurrentPosition((position: Position) => {
-    //     if (position) {
-    //       this.lat = position.coords.latitude;
-    //       this.lng = position.coords.longitude;
-    //     }
-    //   });
-    // }
-
-    const newMaker = new Marker(this.lat, this.lng);
-    this.markers.push(newMaker);
+    if (localStorage.getItem('markers')) {
+      this.markers = JSON.parse(localStorage.getItem('markers'));
+    }
   }
 
   ngOnInit() {
@@ -33,6 +25,11 @@ export class MapComponent implements OnInit {
 
     const newMarker = new Marker(coords.lat, coords.lng);
     this.markers.push(newMarker);
+    this.saveInStorage();
+  }
+
+  saveInStorage() {
+    localStorage.setItem('markers', JSON.stringify(this.markers));
   }
 
 }
